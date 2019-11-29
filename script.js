@@ -58,7 +58,7 @@ function info(data){
 
 
 function infoComics(dataComics){
-    console.log(dataComics)
+    console.log("ici",dataComics)
     let showComics = document.querySelector('.comics');
     for (let i = 0; i <  dataComics.data.results.length; i++) {
         showComics.innerHTML += '<div>' + dataComics.data.results[i].title + '</div>';
