@@ -2,18 +2,26 @@ function getApiData() {
 
     const xhr = new XMLHttpRequest();
     const comics = new XMLHttpRequest();
+    const series = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             const data = JSON.parse(xhr.responseText);
-            console.log(data)
+            info(data)
         }
     }
 
     comics.onreadystatechange = function () {
         if (comics.readyState === 4) {
-            const data2 = JSON.parse(comics.responseText);
-            console.log(data2)
+            const dataComics = JSON.parse(comics.responseText);
+            infoComics(dataComics)
+        }
+    }
+
+    series.onreadystatechange = function () {
+        if (series.readyState === 4) {
+            const dataSeries = JSON.parse(series.responseText);
+            infoSeries(dataSeries)
         }
     }
 
@@ -23,11 +31,35 @@ function getApiData() {
     comics.open('GET', 'https://gateway.marvel.com:443/v1/public/characters/1009351/comics?apikey=5397482515fbd8c77303a8c3294b9ffd');
     comics.send()
 
+    series.open('GET', 'https://gateway.marvel.com:443/v1/public/characters/1009351/series?apikey=5397482515fbd8c77303a8c3294b9ffd');
+    series.send()
+
 
 }
 
+function info(data){
+    console.log(data)
     let show = document.querySelector('.hulk');
-    show.innerHTML = '<div></div>';
+
+    show.innerHTML = '<div>' + data.data.results[0].name + '<br>'+ data.data.results[0].description + '</div>';
+
+}
+
+function infoComics(dataComics){
+    console.log(dataComics)
+    let showComics = document.querySelector('.comics');
+    for (let i = 0; i < dataComics; i++) {
+        showComics.innerHTML = '<div>' + dataComics.data.results[i].title + '</div>';
+    }
+}
+
+function infoSeries(dataSeries){
+    console.log(dataSeries)
+    let showSeries = document.querySelector('.series');
+
+    showSeries.innerHTML ='<br><div>'+ dataSeries.data.results[0].title +'</div>';
+
+}
 
 
 getApiData();
