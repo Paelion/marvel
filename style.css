@@ -10,11 +10,7 @@ header p {
     text-align: center;
 }
 
-.row {
-    color: white;
-}
-
 body {
-    background-image: url("img.jpg");
-    background-size: cover;
+    background-image: url(img.jpg);
+   background-size: cover ;
 }
