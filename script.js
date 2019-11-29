@@ -49,7 +49,7 @@ function getApiData() {
 }
 
 function info(data){
-    console.log(data)
+    
     let show = document.querySelector('.hulk');
 
     show.innerHTML = '<div>' + data.data.results[0].name + '<br>'+ data.data.results[0].description + '</div>';
@@ -58,7 +58,7 @@ function info(data){
 
 
 function infoComics(dataComics){
-    console.log(dataComics)
+
     let showComics = document.querySelector('.comics');
     for (let i = 0; i < dataComics.data.results.length; i++) {
         showComics.innerHTML += '<div>'+ dataComics.data.results[i].title +'</div>';
@@ -66,7 +66,7 @@ function infoComics(dataComics){
 }
 
 function infoSeries(dataSeries){
-    console.log(dataSeries)
+
     let showSeries = document.querySelector('.series');
 
     for (let i = 0; i <  dataSeries.data.results.length; i++) {
@@ -75,7 +75,7 @@ function infoSeries(dataSeries){
 }
 
 function infoStories(dataStories){
-    console.log(dataStories)
+
     let showStories = document.querySelector('.stories');
 
 
