@@ -13,11 +13,7 @@ header p {
 
 body {
 
-    background-image: url("img.jpg");
-    background-size: cover;
+  background-color: limegreen;
 }
 
 
-    background-image: url(img.jpg);
-   background-size: cover ;
-}
